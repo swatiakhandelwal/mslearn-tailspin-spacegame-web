@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
-  - npm
+    - npm
 
 variables:
   buildConfiguration: 'Release'
@@ -20,7 +20,7 @@ steps:
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
-       version: '$(dotnetSdkVersion)'
+    version: '$(dotnetSdkVersion)'
 
 - task: Npm@1
   displayName: 'Run npm install'
@@ -52,7 +52,7 @@ steps:
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
-   inputs:
+  inputs:
     command: 'publish'
     projects: '**/*.csproj'
     publishWebProjects: false
